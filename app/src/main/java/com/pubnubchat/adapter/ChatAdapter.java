@@ -66,11 +66,13 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = (LayoutInflater.from(parent.getContext())).inflate(R.layout.row_others_text_message, parent, false);
+        View view;
         switch (viewType) {
             case R.layout.row_my_text_message:
+                view = (LayoutInflater.from(parent.getContext())).inflate(R.layout.row_my_text_message, parent, false);
                 return new MyTextHolder(view);
             default:
+                view = (LayoutInflater.from(parent.getContext())).inflate(R.layout.row_others_text_message, parent, false);
                 return new OthersTextHolder(view);
         }
     }
