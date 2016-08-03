@@ -53,6 +53,11 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     private List<Message> list;
     private String udid;
 
+    public static void start(Context context) {
+        Intent starter = new Intent(context, ChatActivity.class);
+        context.startActivity(starter);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +77,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
                 PubnubManager.getInstance().publish(
                         Constant.pubnub.CHANNEL,
-                        new Message("Hari",udid, message).toJson().toString());
+                        new Message("Hari", udid, message).toJson().toString());
 
                 et_message.setText("");
                 break;
