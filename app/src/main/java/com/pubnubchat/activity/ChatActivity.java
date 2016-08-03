@@ -25,7 +25,7 @@ import com.pubnubchat.util.Util;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class ChatActivity extends AppCompatActivity implements View.OnClickListener {
     private class ChatReceiver extends BroadcastReceiver {
         // Prevents instantiation
         private ChatReceiver() {
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_chat);
         init();
     }
 
@@ -66,13 +66,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.iv_send:
                 String message = et_message.getText().toString();
                 if (!Util.isNotNullAndNotEmpty(message.trim())) {
-                    Toast.makeText(MainActivity.this, R.string.toast_empty_message, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChatActivity.this, R.string.toast_empty_message, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 PubnubManager.getInstance().publish(
                         Constant.pubnub.CHANNEL,
-                        new Message(udid, message).toJson().toString());
+                        new Message("Hari",udid, message).toJson().toString());
 
                 et_message.setText("");
                 break;

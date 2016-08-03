@@ -15,15 +15,19 @@ import org.json.JSONObject;
 public class Message {
     private static final String TAG = "Message";
     @Expose
-    @SerializedName("deviseToken")
+    @SerializedName("sender_name")
+    private String senderName;
+    @Expose
+    @SerializedName("devise_token")
     private String deviseToken;
 
     @Expose
     @SerializedName("text")
     private String text;
 
-    public Message(String deviseToken, String text) {
+    public Message(String deviseToken, String senderName, String text) {
         this.deviseToken = deviseToken;
+        this.senderName = senderName;
         this.text = text;
     }
 
