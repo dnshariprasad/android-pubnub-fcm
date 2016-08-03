@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.pubnubchat.R;
 import com.pubnubchat.adapter.ChatAdapter;
 import com.pubnubchat.manager.PubnubManager;
+import com.pubnubchat.model.Message;
 import com.pubnubchat.service.PubNubService;
 import com.pubnubchat.util.Constant;
 import com.pubnubchat.util.Util;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             switch (intent.getAction()) {
                 case PubNubService.ACTION_RECEIVE_MESSAGE:
-                    list.add(intent.getStringExtra(PubNubService.EXTRA_MESSAGE));
+                    list.add(Message.fromJson(intent.getStringExtra(PubNubService.EXTRA_MESSAGE)));
                     buildList();
                     if (list.size() > 1)
                         rv_chat.scrollToPosition(list.size() - 1);
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText et_message;
     private RecyclerView rv_chat;
     private ChatAdapter chatAdapter;
-    private List<String> list;
+    private List<Message> list;
+    private String udid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     return;
                 }
 
-                PubnubManager.getInstance().publish(Constant.pubnub.CHANNEL, message);
+                PubnubManager.getInstance().publish(
+                        Constant.pubnub.CHANNEL,
+                        new Message(udid, message).toJson().toString());
 
                 et_message.setText("");
                 break;
@@ -76,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void init() {
+        udid = Util.getUdid(this);
+
         //pull views
         iv_send = (ImageView) findViewById(R.id.iv_send);
         et_message = (EditText) findViewById(R.id.et_message);
