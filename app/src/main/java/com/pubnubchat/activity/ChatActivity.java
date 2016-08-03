@@ -111,6 +111,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         if (null == rv_chat.getAdapter()) {
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
             linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+            linearLayoutManager.setStackFromEnd(true);
             rv_chat.setLayoutManager(linearLayoutManager);
             chatAdapter = new ChatAdapter(this, list);
             rv_chat.setAdapter(chatAdapter);
