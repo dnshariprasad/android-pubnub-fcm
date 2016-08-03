@@ -12,10 +12,10 @@
         android:layout_weight="1" />
 
     <LinearLayout
-        android:background="@color/colorWhite"
-        android:elevation="3dp"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:background="@color/colorWhite"
+        android:elevation="3dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 

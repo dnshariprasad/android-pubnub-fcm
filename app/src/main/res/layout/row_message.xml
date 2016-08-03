@@ -10,6 +10,11 @@
         android:id="@+id/tv_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/chat_background"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
         android:textSize="16sp"
         tools:text="Sample" />
 </LinearLayout>

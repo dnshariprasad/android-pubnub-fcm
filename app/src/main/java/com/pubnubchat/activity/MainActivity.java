@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case PubNubService.ACTION_RECEIVE_MESSAGE:
                     list.add(intent.getStringExtra(PubNubService.EXTRA_MESSAGE));
                     buildList();
+                    if (list.size() > 1)
+                        rv_chat.scrollToPosition(list.size() - 1);
                     break;
             }
         }
