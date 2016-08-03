@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(MainActivity.this, R.string.toast_empty_message, Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 PubnubManager.getInstance().publish(Constant.pubnub.CHANNEL, message);
 
                 et_message.setText("");
