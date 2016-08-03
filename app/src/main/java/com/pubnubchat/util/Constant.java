@@ -1,4 +1,4 @@
-package com.pubnubchat;
+package com.pubnubchat.util;
 
 /**
  * Created by Hari on 8/3/16.

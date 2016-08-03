@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.pubnubchat.MainActivity">
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_subscribe"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_chat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/subscribe" />
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
-    <Button
-        android:id="@+id/btn_unsubscribe"
+    <LinearLayout
+        android:background="@color/colorWhite"
+        android:elevation="3dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/unsubscribe" />
+        android:layout_height="40dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
-    <Button
-        android:id="@+id/btn_send"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/send" />
+        <EditText
+            android:id="@+id/et_message"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:hint="@string/hint_message"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:textSize="16sp" />
 
+        <ImageView
+            android:id="@+id/iv_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/ic_send_black_24dp" />
+    </LinearLayout>
 </LinearLayout>

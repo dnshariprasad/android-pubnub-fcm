@@ -1,11 +1,14 @@
-package com.pubnubchat;
+package com.pubnubchat.manager;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.pubnub.api.Callback;
 import com.pubnub.api.Pubnub;
 import com.pubnub.api.PubnubError;
 import com.pubnub.api.PubnubException;
+import com.pubnubchat.service.PubNubService;
+import com.pubnubchat.util.Constant;
 
 /**
  * Created by Hari on 8/3/16.
@@ -29,7 +32,7 @@ public class PubnubManager {
         pubnub = new Pubnub(Constant.pubnub.PUBLISH_KEY, Constant.pubnub.SUBSCRIBE_KEY);
     }
 
-    public void subscribe(String channel) {
+    public void subscribe(final Context context,String channel) {
 
         Callback callback = new Callback() {
             @Override
@@ -49,6 +52,7 @@ public class PubnubManager {
             @Override
             public void successCallback(String channel, Object message) {
                 Log.d(TAG, "SUBSCRIBE : " + channel + " : " + message.getClass() + " : " + message.toString());
+                PubNubService.startReceiveMessage(context, message.toString());
             }
 
             @Override

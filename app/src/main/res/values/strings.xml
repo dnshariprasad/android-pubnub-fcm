@@ -3,4 +3,6 @@
     <string name="subscribe">Subscribe</string>
     <string name="unsubscribe">Unsubscribe</string>
     <string name="send">Send</string>
+    <string name="hint_message">Message...</string>
+    <string name="toast_empty_message">Empty message.</string>
 </resources>
