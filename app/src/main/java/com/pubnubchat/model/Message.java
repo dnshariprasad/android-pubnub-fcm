@@ -14,6 +14,7 @@ import org.json.JSONObject;
  */
 public class Message {
     private static final String TAG = "Message";
+
     @Expose
     @SerializedName("sender_name")
     private String senderName;
@@ -45,6 +46,14 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
     }
 
     public static Message fromJson(String jsonString) {

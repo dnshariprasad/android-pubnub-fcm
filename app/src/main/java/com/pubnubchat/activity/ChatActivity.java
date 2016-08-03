@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.pubnubchat.R;
 import com.pubnubchat.adapter.ChatAdapter;
 import com.pubnubchat.manager.PubnubManager;
+import com.pubnubchat.manager.SharedPreferenceManager;
 import com.pubnubchat.model.Message;
 import com.pubnubchat.service.PubNubService;
 import com.pubnubchat.util.Constant;
@@ -77,7 +78,9 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
                 PubnubManager.getInstance().publish(
                         Constant.pubnub.CHANNEL,
-                        new Message("Hari", udid, message).toJson().toString());
+                        new Message(udid,
+                                SharedPreferenceManager.getInstance().getString(Constant.preference.NAME, ""),
+                                message).toJson().toString());
 
                 et_message.setText("");
                 break;

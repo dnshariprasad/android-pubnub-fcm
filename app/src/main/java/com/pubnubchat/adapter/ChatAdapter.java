@@ -27,11 +27,12 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public class OthersTextHolder extends RecyclerView.ViewHolder {
-        private TextView tv_text;
+        private TextView tv_text, tv_name;
 
         public OthersTextHolder(View itemView) {
             super(itemView);
             tv_text = (TextView) itemView.findViewById(R.id.tv_text);
+            tv_name = (TextView) itemView.findViewById(R.id.tv_name);
         }
     }
 
@@ -83,6 +84,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ((MyTextHolder) holder).tv_text.setText(list.get(position).getText());
         } else {
             ((OthersTextHolder) holder).tv_text.setText(list.get(position).getText());
+            ((OthersTextHolder) holder).tv_name.setText(list.get(position).getSenderName() + " :");
         }
     }
 }

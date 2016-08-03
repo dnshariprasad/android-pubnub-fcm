@@ -7,7 +7,6 @@
     android:padding="8dp">
 
     <TextView
-        android:textColor="@color/colorWhite"
         android:id="@+id/tv_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,6 +16,7 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:paddingTop="4dp"
+        android:textColor="@color/colorWhite"
         android:textSize="16sp"
         tools:text="Sample" />
 </LinearLayout>
