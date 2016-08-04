@@ -14,5 +14,6 @@ public class Constant {
     }
     public static final class preference {
         public static final String NAME = "name";
+        public static final String FCM_REG_ID = "fcm_reg_id";
     }
 }
